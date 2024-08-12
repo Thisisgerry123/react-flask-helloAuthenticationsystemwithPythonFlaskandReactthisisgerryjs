@@ -12,7 +12,7 @@ const Signup = () => {
         e.preventDefault();
         const success = await actions.signup(email, password);
         if (success) {
-            navigate('/login');
+            navigate('/Log_in');
         } else {
             alert("Signup failed. Please try again.");
         }
