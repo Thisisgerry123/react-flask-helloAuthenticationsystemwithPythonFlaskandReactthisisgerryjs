@@ -25,7 +25,7 @@ export const Navbar = () => {
                 <Link to="/">
                     <span className="navbar-brand mb-0 h1">Cool website where you can login</span>
                 </Link>
-                <div className="ml-auto justify-content-center">
+                <div className="ml-auto">
                     {store.authToken ? (
                         <>
                             <button className="btn btn-secondary mr-2" onClick={() => navigate('/Private')}>

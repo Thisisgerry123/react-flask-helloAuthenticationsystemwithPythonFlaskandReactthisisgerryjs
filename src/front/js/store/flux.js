@@ -45,16 +45,16 @@ const getState = ({ getStore, getActions, setStore }) => {
             // Action to handle user login
             login: async (email, password) => {
                 try {
-                    const response = await fetch('https://potential-happiness-x5r77j95v5g7364q6-3001.app.github.dev/api/login', {
+                    const response = await fetch('https://potential-happiness-x5r77j95v5g7364q6-3001.app.github.dev/api/login', { // Updated URL
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ email, password })
                     });
-
+            
                     if (response.ok) {
-                        const { token } = await response.json();
-                        sessionStorage.setItem('authToken', token);
-                        setStore({ authToken: token });
+                        const { access_token } = await response.json(); // Use the correct variable name if it's different
+                        sessionStorage.setItem('authToken', access_token); // Use the correct token key name if it's different
+                        setStore({ authToken: access_token });
                         alert('Login successful!');
                         return true;
                     } else {
@@ -68,7 +68,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                     return false;
                 }
             },
-
+            
             // Action to handle user logout
             logout: () => {
                 sessionStorage.removeItem('authToken');
