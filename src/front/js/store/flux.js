@@ -21,10 +21,13 @@ const getState = ({ getStore, getActions, setStore }) => {
             // Action to handle user signup
             signup: async (email, password) => {
                 try {
-                    const response = await fetch('https://potential-happiness-x5r77j95v5g7364q6-3001.app.github.dev/api/signup', {
+                    const response = await fetch('https://potential-happiness-x5r77j95v5g7364q6-3001.app.github.dev/api/Signup', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, password })
+                        body: JSON.stringify({ 
+                            email: email,
+                            password: password,
+                         })
                     });
 
                     if (response.ok) {
@@ -48,7 +51,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                     const response = await fetch('https://potential-happiness-x5r77j95v5g7364q6-3001.app.github.dev/api/login', { // Updated URL
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ email, password })
+                        body: JSON.stringify({
+                            email: email,
+                            password: password
+                        })
                     });
             
                     if (response.ok) {

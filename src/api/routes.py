@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify, Blueprint
+from flask_cors import CORS
 from api.models import db, User
 from api.utils import APIException
 from flask_jwt_extended import create_access_token, jwt_required, JWTManager, get_jwt_identity
@@ -6,11 +7,15 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 api = Blueprint('api', __name__)
 
+#Allow CORS requests to this API
+CORS(api)
+
 @api.route('/Signup', methods=['POST'])
 def signup():
     body = request.get_json()
     email = body.get('email')
     password = body.get('password')
+
 
     if not email or not password:
         return jsonify({"msg": "Missing email or password"}), 400
@@ -26,7 +31,7 @@ def signup():
 
     return jsonify({"msg": "User created successfully"}), 200
 
-@api.route('/Log_in', methods=['POST'])
+@api.route('/login', methods=['POST'])
 def login():
     body = request.get_json()
     email = body.get('email')
