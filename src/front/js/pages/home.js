@@ -11,7 +11,7 @@ export const Home = () => {
             {store.authToken ? (
                 <p>Welcome back! Go to your <Link to="/private">Dashboard</Link>.</p>
             ) : (
-                <p>Please <Link to="/login">login</Link> or <Link to="/signup">sign up</Link> to continue.</p>
+                <p>Please <Link to="/Log_in">login</Link> or <Link to="/Signup">sign up</Link> to continue.</p>
             )}
         </div>
     );

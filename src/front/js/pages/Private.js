@@ -9,7 +9,7 @@ const Private = () => {
     useEffect(() => {
         const isAuthenticated = actions.checkAuthentication();
         if (!isAuthenticated) {
-            navigate('/Log_in');
+            navigate('/Log_in'); // Redirect to login if not authenticated
         }
     }, [actions, navigate]);
 

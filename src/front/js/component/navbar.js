@@ -7,16 +7,9 @@ export const Navbar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        actions.logout();
-        navigate('/Log_in');
-    };
-
-    const handleAuthButton = () => {
-        if (store.authToken) {
-            navigate('/Private');
-        } else {
-            navigate('/Log_in');
-        }
+        sessionStorage.removeItem('authToken'); // Remove the token from sessionStorage
+        actions.logout(); // This will also clear the authToken from the store
+        navigate('/'); // Redirect to the home page after logout
     };
 
     return (

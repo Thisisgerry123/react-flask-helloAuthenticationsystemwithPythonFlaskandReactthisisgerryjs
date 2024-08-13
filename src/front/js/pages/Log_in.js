@@ -12,7 +12,7 @@ const Login = () => {
         e.preventDefault();
         const success = await actions.login(email, password);
         if (success) {
-            navigate('/private');
+            navigate('/Private'); // Redirect to private page after successful login
         } else {
             alert("Login failed. Please check your credentials.");
         }
